@@ -8,12 +8,16 @@ import matplotlib.dates as mdates
 
 # %%
 # Load the COVID-19 dataset
+<<<<<<< HEAD
 data = pd.read_csv('sars_china_hongkong_data_2003_cumulative.csv')
+=======
+data = pd.read_csv("sars_china_hongkong_data_2003_cumulative.csv")
+>>>>>>> acbdbe8a4c335c76110385f47d1a0896abbea5e7
 # Display the first few rows of the dataset
 print(data.head())
 
 # Preprocess the data to get the total confirmed cases over time for US
-data = data.loc[data["Country/Region"] == "US"].transpose().reset_index()
+# data = data.loc[data["Country/Region"] == "US"].transpose().reset_index()
 data = data.drop(index=0)  # drop the 'Country/Region' row
 data.columns = ['date', 'confirmed_cases']
 data['date'] = pd.to_datetime(data['date'])
@@ -28,12 +32,12 @@ plt.plot(data['date'],
          marker="o")
 plt.ylim(0, 10000)
 plt.xlabel('Date')
-plt.xlim(pd.Timestamp('2020-01-21'), pd.Timestamp('2020-03-17'))
+plt.xlim(pd.Timestamp('2003-03-16'), pd.Timestamp('2003-07-02'))
 # Format ticks as M/D (no leading zeros)
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%-m/%-d'))
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%#m/%#d'))
 plt.gca().xaxis.set_major_locator(mdates.WeekdayLocator(interval=1))
 plt.ylabel('Number of Cases')
-plt.title('US COVID-19 Confirmed Cases Over Time')
+plt.title('China SARS Confirmed Cases Over Time')
 plt.legend()
 plt.show()
 
@@ -62,12 +66,12 @@ plt.plot(data['date'],
          label='New Confirmed Cases',
          marker="o")
 plt.xlabel('Date')
-plt.ylim(0, 2100)
-plt.xlim(pd.Timestamp('2020-01-21'), pd.Timestamp('2020-03-17'))
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%-m/%-d'))
+plt.ylim(0, 1000)
+plt.xlim(pd.Timestamp('2003-03-16'), pd.Timestamp('2003-07-01'))
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%#m/%#d'))
 plt.gca().xaxis.set_major_locator(mdates.WeekdayLocator(interval=1))
 plt.ylabel('Number of New Cases')
-plt.title('New US COVID-19 Cases Over Time')
+plt.title('New China SARS Cases Over Time')
 plt.legend()
 plt.show()
 
@@ -80,14 +84,14 @@ plt.plot(data['date'],
          label='New Cases',
          marker="o")
 plt.xlabel('Date')
-plt.xlim(pd.Timestamp('2020-01-21'), pd.Timestamp('2021-03-17'))
-plt.ylim(0, 400000)
+plt.xlim(pd.Timestamp('2003-03-16'), pd.Timestamp('2003-07-01'))
+plt.ylim(0, 1000)
 
 # Format ticks as M/Y (no leading zeros)
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%-m/%-y'))
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%#m/%#d'))
 plt.gca().xaxis.set_major_locator(mdates.WeekdayLocator(interval=12))
 plt.ylabel('Number of Cases')
-plt.title('New US COVID-19 Cases Over Time')
+plt.title('New China SARS Cases Over Time')
 plt.legend()
 plt.show()
 
@@ -117,13 +121,13 @@ plt.plot(data_sir['date'],
          color='red')
 
 plt.xlabel('Date')
-plt.xlim(pd.Timestamp('2020-01-21'), pd.Timestamp('2021-03-17'))
+plt.xlim(pd.Timestamp('2003-03-16'), pd.Timestamp('2003-07-01'))
 plt.ylim(0, 4e6)
 
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%-m/%-y'))
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%#m/%#d'))
 plt.gca().xaxis.set_major_locator(mdates.WeekdayLocator(interval=12))
 plt.ylabel('Percent of Individuals')
-plt.title('Estimated Infections of COVID-19 in US')
+plt.title('Estimated Infections of SARS in China')
 plt.legend()
 plt.show()
 # %%
