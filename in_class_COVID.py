@@ -1,6 +1,6 @@
 ##############################################
 # %% RUN AS AN INTERACTIVE NOTEBOOK
-from Module_4.Code.main_functions import convert_cumulative_to_SIR
+from main_functions import convert_cumulative_to_SIR
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -8,7 +8,7 @@ import matplotlib.dates as mdates
 
 # %%
 # Load the COVID-19 dataset
-data = pd.read_csv('Module_4/Data/time_series_covid19_confirmed_global.csv')
+data = pd.read_csv('sars_china_hongkong_data_2003_cumulative.csv')
 # Display the first few rows of the dataset
 print(data.head())
 
