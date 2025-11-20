@@ -7,7 +7,7 @@ import matplotlib.dates as mdates
 
 
 # %%
-# Load the COVID-19 dataset
+# Load the SARS Dataset
 data = pd.read_csv("sars_china_hongkong_data_2003_cumulative.csv")
 # Display the first few rows of the dataset
 print(data.head())
