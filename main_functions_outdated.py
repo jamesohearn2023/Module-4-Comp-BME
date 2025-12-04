@@ -54,34 +54,3 @@ def convert_cumulative_to_SIR(df, date_col='date', cumulative_col='cumulative_ca
         df[S_col] = df[S_col].astype(float)
 
     return df
-
-
-def euler_sir(beta, gamma, S0, I0, R0, t, N):
-    """
-    Solve the SIR model using Euler's method.
-    Parameters:
-    - beta: Infection rate
-    - gamma: Recovery rate
-    - S0: Initial susceptible population
-    - I0: Initial infected population
-    - R0: Initial recovered population
-    - t: Array of time points (days or weeks)
-    - N: Total population
-    Returns:
-    - S: Array of susceptible population over time
-    - I: Array of infected population over time
-    - R: Array of recovered population over time
-    """
-    S = np.empty(len(t), float)
-    I = np.empty(len(t), float)
-    R = np.empty(len(t), float)
-    S[0], I[0], R[0] = S0, I0, R0
-    for n in range(len(t) - 1):
-        dt = t[n + 1] - t[n]  # dt is our step size (1 day or 1 week)
-        dS = 0  # FILL IN BASED ON SIR MODEL
-        dI = 0  # FILL IN BASED ON SIR MODEL
-        dR = 0  # FILL IN BASED ON SIR MODEL
-        S[n + 1] = 0  # FILL IN BASED ON EULER'S METHOD
-        I[n + 1] = 0  # FILL IN BASED ON EULER'S METHOD
-        R[n + 1] = 0  # FILL IN BASED ON EULER'S METHOD
-    return S, I, R
